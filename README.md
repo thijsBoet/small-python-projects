@@ -1,8 +1,9 @@
-# small-python-projects
+# Small-python-projects
 Small sized python projects
 
-## google python exercises
+## Google python exercises
 https://developers.google.com/edu/python/exercises
 * babynames
 * copyspecial
 * logpuzzle
+* wordcount
