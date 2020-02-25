@@ -1,22 +1,18 @@
 import os
 import sys
-import urllib.request, urllib.error, urllib.parse
+import shutil
 
-# open html pages
-# https://www.svbkindernamen.nl/int/nl/kindernamen/wizard/zoeknaam/jongensnamen_2018/index.html
+# import urllib.request, urllib.error, urllib.parse
+# url = 'https://www.ssa.gov/cgi-bin/popularnames.cgi'
+# response = urllib.request.urlretrieve(url, 'jongens_2018.txt')
+# shutil.copy('D:\\python\\small-python-projects\\babynames\\baby1992.html', 'D:\\python\\small-python-projects\\babynames\\baby1992.txt')
 
-# https://programminghistorian.org/en/lessons/working-with-web-pages
-#https://programminghistorian.org/en/lessons/downloading-multiple-records-using-query-strings
+baby1990 = open('baby1992.txt', 'r')
+baby1990Content = baby1990.read()
+baby1990.close()
 
-url = 'http://www.oldbaileyonline.org/browse.jsp?id=t17800628-33&div=t17800628-33'
-response = urllib.request.urlopen(url)
-webContent = response.read()
+print(baby1990Content)
 
-print(webContent)
-
-# save html pages
-
-# convert to one txt file
 
 # use regex to extract name, gender, year and rank
 
