@@ -1,20 +1,31 @@
 import os
 import sys
-import shutil
+import re
 
-# import urllib.request, urllib.error, urllib.parse
-# url = 'https://www.ssa.gov/cgi-bin/popularnames.cgi'
-# response = urllib.request.urlretrieve(url, 'jongens_2018.txt')
-# shutil.copy('D:\\python\\small-python-projects\\babynames\\baby1992.html', 'D:\\python\\small-python-projects\\babynames\\baby1992.txt')
+os.chdir('D:\\python\\small-python-projects\\babynames')
 
-baby1990 = open('baby1992.txt', 'r')
-baby1990Content = baby1990.read()
-baby1990.close()
+baby2018 = open('baby2018.html', 'r')
+baby2018Content = baby2018.read()
+baby2018.close()
 
-print(baby1990Content)
+# use regex to extract rank, year, gender and name
+rankedNames = re.findall(r'<td>(\d*)</td> <td>(\w*)</td> <td>(\w*)</td>', baby2018Content)
 
+# convert tuples tp dictionary
+rankedBoysDict = {}
+for rankedName in rankedNames:
+    rankedBoysDict[rankedName[0]] = rankedName[1]
 
-# use regex to extract name, gender, year and rank
+rankedGirlsDict = {}
+for rankedName in rankedNames:
+    rankedGirlsDict[rankedName[0]] = rankedName[2]
+
+def prettyPrint(text):
+    print("{" + "\n".join("{!r}: {!r},".format(k, v) for k, v in text.items()) + "}")
+
+prettyPrint(rankedBoysDict)
+prettyPrint(rankedGirlsDict)
 
 # sort by name
-
+print(sorted(rankedBoysDict.items(), key=lambda x: x[1]))
+print(sorted(rankedGirlsDict.items(), key=lambda x: x[1]))

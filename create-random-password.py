@@ -1,13 +1,12 @@
 import random
 import string
 
-chars = []
-letters = string.ascii_letters
-digits = string.digits
+def createRandomPassword(amountOfCharacters):
+    chars = list(string.ascii_letters + string.digits)
+    password = ''
+    for letter in range(amountOfCharacters):
+        password += chars[random.randrange(0, len(chars))]
 
-chars.append(letters)
-chars.append(digits)
+    return password
 
-print(chars)
-
-# chars = ['#','$','%','&','\(','\)','*','+',',','-','.','/',':',';','<','=','>','?','@','_', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+print(createRandomPassword(32))
