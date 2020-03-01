@@ -2,13 +2,13 @@ import random
 
 numberOfDice = int(input('Input the number of dice you want to throw? '))
 
-def throughDice(numberOfDice):
+def throwDice(numberOfDice):
     totalScore = 0
     i = 0
     while i < numberOfDice:
         totalScore += random.randint(1,6)
         i += 1
 
-    print(f'Total score by {numberOfDice} dice is {totalScore}')
+    print(f'Total score by {numberOfDice} different dice throws is : {totalScore}')
 
-throughDice(numberOfDice)
+throwDice(numberOfDice)
