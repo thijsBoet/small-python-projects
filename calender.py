@@ -1,8 +1,11 @@
-year = 2020
+import datetime
+
+now = datetime.datetime.now()
+currentYear = now.year
 
 months = {
     'Januari'   : 31,
-    'Februari'  : year % 4 != 0 if 28 else 29,
+    'Februari'  : currentYear % 4 != 0 if 28 else 29,
     'March'     : 31,
     'April'     : 30,
     'May'       : 31,
@@ -16,11 +19,16 @@ months = {
 }
 
 days = [
+    'Su',
     'Mo',
     'Tu',
     'We',
     'Th',
     'Fr',
-    'Sa',
-    'Su'
+    'Sa'
 ]
+
+def printDate():
+    return f'{days[now.day]} '
+
+print(printDate())
